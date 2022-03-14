@@ -39,10 +39,6 @@ later get an API token using the /api/token/exchange endpoint (with the third-
 party token as a parameter).
 */
 
-/* To Do
-- How to generate / synch endpoint code with openapi spec
-- CORS
-*/
 
 const fastify = require('fastify');
 const inputVal = require('openapi-validator-middleware');
@@ -263,20 +259,9 @@ app.get( '/app/ui/auth', ( _req, _resp ) => {
 // ------------------------------------ Load OpenAPI route handlers
 // Repeat for each API group
 
-
 app.register( require( "./routes/api/user" ), { prefix: "/auth/api/user" });
 app.register( require( "./routes/api/project" ), { prefix: "/auth/api/project" });
 
-
-/*
-app.get('/auth/api/user/list', (_req, _rep) => {
-    _rep.send({ users: ['aaa','bbb'] });
-});
-
-app.get('/auth/api/user/view', (_req, _rep) => {
-    _rep.send({ id: 'aaa' });
-});
-*/
 
 // ------------------------------------ Anonymous API Methods
 
